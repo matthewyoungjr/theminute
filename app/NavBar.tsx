@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useRef, useState } from "react";
 import { navLinks } from "./routes/nav-links";
 import Link from "next/link";
 import { ThemeSwitcher } from "./ThemeSwitcher";
