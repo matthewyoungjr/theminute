@@ -1,9 +1,9 @@
-type Source = {
+interface Source {
   id: string;
   name: string;
-};
+}
 
-export type Everything = {
+export interface Article {
   source: Source;
   author: string;
   title: string;
@@ -12,4 +12,8 @@ export type Everything = {
   urlToImage: string;
   publishedAt: string;
   content: string;
-};
+}
+
+export interface Response {
+  articles: Article[];
+}
