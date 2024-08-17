@@ -8,14 +8,14 @@ import clsx from "clsx";
 const NewsCard = () => {
   const { resolvedTheme } = useTheme();
 
-  const bg = clsx(
-    { "gray-200": resolvedTheme === "light" },
-    { "gray-900": resolvedTheme === "dark" }
-  );
-
   return (
     <Link href="">
-      <Card className={`max-w-x hover:bg-` + bg}>
+      <Card
+        className={clsx(
+          "max-w-x",
+          resolvedTheme === "light" ? "hover:bg-gray-200" : "hover:bg-gray-900"
+        )}
+      >
         <Card.Header>
           <Card.Title> :Business </Card.Title>
         </Card.Header>
