@@ -13,3 +13,9 @@ export interface Article {
 export interface Response {
   articles: Article[];
 }
+
+export interface newsTitleProps {
+  params: {
+    newsTitle: string;
+  };
+}
