@@ -1,12 +1,12 @@
 import React from "react";
-import { Noto_Serif_JP } from "next/font/google";
+import { Playfair_Display_SC } from "next/font/google";
 
-const noto = Noto_Serif_JP({ weight: "500", subsets: ["latin"] });
+const playfair_sc = Playfair_Display_SC({ weight: "700", subsets: ["latin"] });
 
 const Header = ({ title }: { title: string }) => {
   return (
     <h1
-      className={`flex justify-center items-center mt-5 text-center text-2xl md:text-3xl tracking-wide ${noto.className}`}
+      className={`flex justify-center items-center mt-5 text-center text-2xl md:text-3xl tracking-wide ${playfair_sc.className}`}
     >
       {title}
     </h1>

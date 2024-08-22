@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { navLinks } from "./routes/nav-links";
 import Link from "next/link";
 import { ThemeSwitcher } from "./ThemeSwitcher";
@@ -7,7 +7,7 @@ import SideNav from "./SideNav";
 
 const NavBar = () => {
   return (
-    <nav className="flex justify-between border-b p-2 items-center ">
+    <nav className="flex justify-between border-b p-2 items-center shadow-md">
       <SideNav />
       <ul className="flex space-x-5 items-center">
         {navLinks.map((link, index) => (

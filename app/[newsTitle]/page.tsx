@@ -1,12 +1,23 @@
+import { useSingle } from "../hooks/useSingle";
 import { newsTitleProps } from "../types/newsType";
 import ArticleImage from "./ArticleImage";
+import ArticlePublisherInfo from "./ArticlePublisherInfo";
+import ArticleTitle from "./ArticleTitle";
+import ContentArea from "./ContentArea";
+import apiClient from "../services/api-client";
 
-const ArticleContent = ({ params: { newsTitle } }: newsTitleProps) => {
+type Props = {
+  searchParams: {
+    q: string;
+  };
+};
+
+const ContentPage = ({ searchParams: { q } }: Props) => {
   return (
-    <div>
-      <ArticleImage />
-    </div>
+    <>
+      <h1>{q}</h1>
+    </>
   );
 };
 
-export default ArticleContent;
+export default ContentPage;

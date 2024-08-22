@@ -1,16 +1,27 @@
-import NewsList from "./compnents/NewsList";
-import SingleNewsArticle from "./compnents/SingleNewsArticle";
-import Header from "./Header";
+"use client";
+import Link from "next/link";
+import NewsCard from "./compnents/NewsCard";
+import NewsGrid from "./compnents/NewsGrid";
+import { useTopHeadlines } from "./hooks/useTopHeadlines";
+import { Loader } from "@/components/ui/loader";
 
 export default function Home() {
+  const { data, isLoading, error } = useTopHeadlines();
+
   return (
     <>
-      <Header title="Latest News" />
-
-      <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 items-start">
-        <SingleNewsArticle />
-        <NewsList />
-      </div>
+      {isLoading && <Loader size="medium" />}
+      {error && <p>{error.message}</p>}
+      <NewsGrid>
+        {data?.map((article, index) => (
+          <NewsCard
+            key={index}
+            title={article.title}
+            author={article.author}
+            url={article.url}
+          />
+        ))}
+      </NewsGrid>
     </>
   );
 }
