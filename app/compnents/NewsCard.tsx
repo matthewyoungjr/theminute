@@ -5,11 +5,19 @@ import Link from "next/link";
 import { useTheme } from "next-themes";
 import clsx from "clsx";
 
-const NewsCard = () => {
+const NewsCard = ({
+  title,
+  author,
+  url,
+}: {
+  title: string;
+  author: string;
+  url: string;
+}) => {
   const { resolvedTheme } = useTheme();
 
   return (
-    <Link href="">
+    <Link href={url} target="_blank">
       <Card
         className={clsx(
           "max-w-x",
@@ -19,12 +27,9 @@ const NewsCard = () => {
         <Card.Header>
           <Card.Title> :Business </Card.Title>
         </Card.Header>
-        <Card.Content>
-          Elenas: The Ouest to Become LatAm's Social Commerce Leader And Plans
-          On Becoming A Dictator.
-        </Card.Content>
+        <Card.Content>{title}</Card.Content>
         <Card.Footer>
-          <Card.Description>January 11, 2024</Card.Description>
+          <Card.Description>{author}</Card.Description>
         </Card.Footer>
       </Card>
     </Link>
