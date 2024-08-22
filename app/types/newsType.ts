@@ -3,11 +3,14 @@ interface Source {
 }
 
 export interface Article {
+  source: Source;
+  author: string;
   title: string;
   description: string;
+  urlToImage: string;
+  publishedAt: string;
   content: string;
-  image: string;
-  source: Source;
+  url: string;
 }
 
 export interface Response {
