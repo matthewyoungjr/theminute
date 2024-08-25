@@ -1,5 +1,4 @@
 import React, { ReactNode } from "react";
-import { Article } from "../types/newsType";
 import { openSans } from "../layout";
 
 const ContentArea = ({ content }: { content: string }) => {
