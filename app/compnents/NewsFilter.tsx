@@ -1,27 +1,36 @@
-import React from "react";
+"use client";
+import { useState } from "react";
 import { Select } from "@/components/ui/select";
+import { Key } from "react-aria";
+import { SearchField } from "@/components/ui/search-field";
 
-interface CountryProp {
-  id: number;
-  name: string;
+interface Props {
+  onSelectItem?: (item: Key) => void;
 }
 
-const countries: CountryProp[] = [
-  { id: 1, name: "United States" },
-  { id: 2, name: "United Kingdom" },
-  { id: 3, name: "France" },
-  { id: 4, name: "Nigeria" },
+const countries = [
+  { sh: "us", name: "United States" },
+  { sh: "gb", name: "United Kingdom" },
+  { sh: "fr", name: "France" },
+  { sh: "ng", name: "Nigeria" },
 ];
 
-const NewsFilter = () => {
+const NewsFilter = ({ onSelectItem }: Props) => {
+  const [value, setValue] = useState<Key>("");
+
+  console.log(value);
   return (
     <>
       <div className="mt-5 ml-7 w-5/6 md:w-2/5 lg:w-80">
-        <Select label="Country">
+        <Select
+          label="Country"
+          placeholder="Select a country"
+          onSelectionChange={(slc) => onSelectItem(slc)}
+        >
           <Select.Trigger />
           <Select.List items={countries}>
             {(country) => (
-              <Select.Option id={country.id} textValue={country.name}>
+              <Select.Option id={country.sh} textValue={country.name}>
                 {country.name}
               </Select.Option>
             )}

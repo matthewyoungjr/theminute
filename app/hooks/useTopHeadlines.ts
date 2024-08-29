@@ -2,10 +2,10 @@ import { useQuery } from "@tanstack/react-query";
 import apiClient from "../services/api-client";
 import { Response } from "../types/newsType";
 
-export const useTopHeadlines = () => {
+export const useTopHeadlines = ({ country }: { country: string }) => {
   const fetchHeadlines = () => {
     return apiClient
-      .get<Response>("/top-headlines?country=fr")
+      .get<Response>(`/top-headlines?country=${country}`)
       .then((res) => res.data.articles)
       .catch((error) => {
         console.error(error.message);
@@ -14,7 +14,7 @@ export const useTopHeadlines = () => {
   };
 
   const { data, error, isLoading } = useQuery({
-    queryKey: ["top-headlines"],
+    queryKey: ["top-headlines", country],
     queryFn: fetchHeadlines,
     retry: 2,
     staleTime: 60000, // 60 seconds
