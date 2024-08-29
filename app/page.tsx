@@ -9,7 +9,6 @@ import { useState } from "react";
 
 export default function Home() {
   const [country, setCountry] = useState<string>("fr");
-  console.log(country);
 
   const { data, isLoading, error } = useTopHeadlines({ country });
 
@@ -17,7 +16,7 @@ export default function Home() {
 
   return (
     <>
-      <Heading level={1} className="text-6xl mt-4 ml-5">
+      <Heading level={1} className="text-6xl mt-10 ml-5 md:text-center">
         Top Headlines
       </Heading>
       {isLoading && <Loader size="medium" />}
