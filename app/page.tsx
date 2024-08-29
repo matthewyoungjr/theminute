@@ -6,13 +6,14 @@ import { Loader } from "@/components/ui/loader";
 import NewsFilter from "./compnents/NewsFilter";
 import { Heading } from "@/components/ui/heading";
 import { useState } from "react";
+import { Key } from "react-aria";
 
 export default function Home() {
-  const [country, setCountry] = useState<string>("fr");
+  const [country, setCountry] = useState<Key>("fr");
 
   const { data, isLoading, error } = useTopHeadlines({ country });
 
-  const handleChange = (name: string) => setCountry(name);
+  const handleChange = (name: Key) => setCountry(name);
 
   return (
     <>
@@ -20,7 +21,7 @@ export default function Home() {
         Top Headlines
       </Heading>
       {isLoading && <Loader size="medium" />}
-      {error && <p>{error.message}</p>}
+      {error && <p className="text-red-800">{error.message}</p>}
       <NewsFilter onSelectItem={(item) => handleChange(item)} />
       <NewsGrid>
         {data?.map((article, index) => (

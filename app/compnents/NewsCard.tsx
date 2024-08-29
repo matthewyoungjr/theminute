@@ -24,9 +24,7 @@ const NewsCard = ({
           resolvedTheme === "light" ? "hover:bg-gray-200" : "hover:bg-gray-900"
         )}
       >
-        <Card.Header>
-          <Card.Title> :Business </Card.Title>
-        </Card.Header>
+        <Card.Header></Card.Header>
         <Card.Content>{title}</Card.Content>
         <Card.Footer>
           <Card.Description>{author}</Card.Description>

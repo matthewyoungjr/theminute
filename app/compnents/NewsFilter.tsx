@@ -2,10 +2,9 @@
 import { useState } from "react";
 import { Select } from "@/components/ui/select";
 import { Key } from "react-aria";
-import { SearchField } from "@/components/ui/search-field";
 
 interface Props {
-  onSelectItem?: (item: Key) => void;
+  onSelectItem: (item: Key) => void;
 }
 
 const countries = [
@@ -18,7 +17,6 @@ const countries = [
 const NewsFilter = ({ onSelectItem }: Props) => {
   const [value, setValue] = useState<Key>("");
 
-  console.log(value);
   return (
     <>
       <div className="mt-5 ml-7 w-5/6 md:w-2/5 lg:w-80">
