@@ -4,6 +4,6 @@ Access to news articles from all over the world.
 
 <h2>TODO:</h2>
 <ul>
-<li>Implement filtering</li>
-<li>Implement Searching</li>
+<li> DONE :Implement filtering</li>
+<li>TODO: Implement Searching</li>
 </ul>
