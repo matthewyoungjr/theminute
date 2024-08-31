@@ -17,12 +17,15 @@ export default function Home() {
 
   return (
     <>
-      <Heading level={1} className="text-6xl mt-10 ml-5 md:text-center">
+      <Heading
+        level={1}
+        className="text-4xl md:text-6xl mt-10 ml-5 text-center"
+      >
         Top Headlines
       </Heading>
+      <NewsFilter onSelectItem={(item) => handleChange(item)} />
       {isLoading && <Loader size="medium" />}
       {error && <p className="text-red-800">{error.message}</p>}
-      <NewsFilter onSelectItem={(item) => handleChange(item)} />
       <NewsGrid>
         {data?.map((article, index) => (
           <NewsCard
