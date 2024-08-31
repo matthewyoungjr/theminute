@@ -4,6 +4,7 @@ import { Providers } from "../components/providers";
 import NextTopLoader from "nextjs-toploader";
 import NavBar from "./NavBar";
 import QueryClientProvider from "./QueryClientProvider";
+import { ViewTransitions } from "next-view-transitions";
 import { Metadata } from "next";
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,16 +24,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <QueryClientProvider>
-          <Providers>
-            <NextTopLoader />
-            <NavBar />
-            {children}
-          </Providers>
-        </QueryClientProvider>
-      </body>
-    </html>
+    <ViewTransitions>
+      <html lang="en">
+        <body className={inter.className}>
+          <QueryClientProvider>
+            <Providers>
+              <NextTopLoader />
+              <NavBar />
+              {children}
+            </Providers>
+          </QueryClientProvider>
+        </body>
+      </html>
+    </ViewTransitions>
   );
 }
