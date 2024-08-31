@@ -19,6 +19,7 @@
     "justd-icons": "^1.4.40",
     "next": "14.2.5",
     "next-themes": "^0.3.0",
+    "next-view-transitions": "^0.3.0",
     "nextjs-toploader": "^1.6.12",
     "react": "^18",
     "react-aria": "^3.34.3",
