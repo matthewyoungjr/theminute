@@ -6,7 +6,7 @@ import { Loader } from "@/components/ui/loader";
 import NewsFilter from "./compnents/NewsFilter";
 import { Heading } from "@/components/ui/heading";
 import { useState } from "react";
-import { Key } from "react-aria";
+import type { Key } from "react-aria";
 
 export default function Home() {
   const [country, setCountry] = useState<Key>("fr");
@@ -25,7 +25,7 @@ export default function Home() {
       </Heading>
       <NewsFilter onSelectItem={(item) => handleChange(item)} />
       {isLoading && <Loader size="medium" />}
-      {error && <p className="text-red-800">{error.message}</p>}
+      {error && <p className="text-red-500">{error.message}</p>}
       <NewsGrid>
         {data?.map((article, index) => (
           <NewsCard

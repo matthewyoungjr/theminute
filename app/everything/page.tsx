@@ -1,9 +1,15 @@
+"use client";
 import { Heading } from "@/components/ui/heading";
 import Search from "../compnents/Search";
 import NewsGrid from "../compnents/NewsGrid";
 import useEverything from "../hooks/useEverything";
+import { useState } from "react";
+import NewsCard from "../compnents/NewsCard";
 
 const Everything = () => {
+  const [search, setSearch] = useState<string>('')
+  const { data, error } = useEverything({ search }); 
+  const handleOnSearch = (term: string) => setSearch(term);
   return (
     <>
       <Heading
@@ -12,7 +18,18 @@ const Everything = () => {
       >
         Everything
       </Heading>
-      <Search />
+      <Search onSearch={handleOnSearch}/>
+      {error && <p className="text-red-500">{error.message}</p>}
+      <NewsGrid> 
+        {data?.map((article, index) => (
+          <NewsCard
+            key={index}
+            title={article.title}
+            author={article.author}
+            url={article.url}
+          />
+        ))}
+      </NewsGrid>
     </>
   );
 };

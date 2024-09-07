@@ -10,6 +10,6 @@ Access to news articles from all over the world.
 <h2>TODO:</h2>
 <ul>
 <li> DONE: Implement filtering</li>
-<li> TODO: Implement Searching</li>
+<li> DONE: Implement Searching</li>
 <li> TODO: Implement Search using debouncing</li>
 </ul>
