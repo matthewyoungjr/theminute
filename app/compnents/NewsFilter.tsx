@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { Select } from "@/components/ui/select";
-import { Key } from "react-aria";
+import type { Key } from "react-aria";
 
 interface Props {
   onSelectItem: (item: Key) => void;

@@ -1,5 +1,5 @@
 "use client";
-import React, { ReactNode } from "react";
+import type { ReactNode } from "react";
 import { Grid } from "@/components/ui/grid";
 import { GridListItem } from "react-aria-components";
 

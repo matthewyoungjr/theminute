@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import apiClient from "../services/api-client";
-import { Response } from "../types/newsType";
-import { Key } from "react-aria";
+import type { Response } from "../types/newsType";
+import type { Key } from "react-aria";
 
 export const useTopHeadlines = ({ country }: { country: Key }) => {
   const fetchHeadlines = () => {

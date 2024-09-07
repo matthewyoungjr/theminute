@@ -2,24 +2,31 @@
 
 import { Description } from "@/components/ui/field";
 import { SearchField } from "@/components/ui/search-field";
-import React, { useState } from "react";
+import useEverything from "../hooks/useEverything";
+import { useQueryState } from 'nuqs';
 
-const Search = () => {
-  const [value, setValue] = useState<string>("");
+interface SearchProps {
+  onSearch: (term: string) => void;
+}
+
+const Search = ({ onSearch }: SearchProps) => {
+  const [search, setSearch] = useQueryState('q', { defaultValue: ''})
   const handleSearch = (term: string) => {
-    setValue(term);
+    setSearch(term)
+    onSearch(term)
   };
+ 
 
   return (
     <>
       <SearchField
-        value={value}
+        value={search}
         onChange={handleSearch}
-        className="mt-5 mx-5 mb-2"
+        className="mt-5 mx-5 mb-2 md:w-2/4 md:mx-auto"
         label="Search"
       />
-      <Description className="mt-2 block mx-5 [&>strong]:text-fg">
-        You have typed: <strong>{value ?? "-"}</strong>
+      <Description className="mt-2 md:text-center block mx-5 [&>strong]:text-fg">
+        You have typed: <strong>{search ?? "-"}</strong>
       </Description>
     </>
   );
