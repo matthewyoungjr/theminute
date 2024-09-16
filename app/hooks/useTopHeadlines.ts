@@ -6,8 +6,8 @@ import type { Key } from "react-aria";
 export const useTopHeadlines = ({ country }: { country: Key }) => {
   const fetchHeadlines = () => {
     return apiClient
-      .get<Response>(`/top-headlines?country=${country}`)
-      .then((res) => res.data.articles)
+      .get<Response>(`/latest?country=${country}`)
+      .then(({data}) => data.results)
       .catch((error) => {
         console.error(error.message);
         throw error;
@@ -15,7 +15,7 @@ export const useTopHeadlines = ({ country }: { country: Key }) => {
   };
 
   const { data, error, isLoading } = useQuery({
-    queryKey: ["top-headlines", country],
+    queryKey: ["latest", country],
     queryFn: fetchHeadlines,
     retry: 2,
     staleTime: 60000, // 60 seconds
@@ -23,3 +23,11 @@ export const useTopHeadlines = ({ country }: { country: Key }) => {
 
   return { data, isLoading, error };
 };
+
+
+
+
+
+
+
+

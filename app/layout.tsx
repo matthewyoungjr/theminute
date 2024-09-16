@@ -5,7 +5,7 @@ import NextTopLoader from "nextjs-toploader";
 import NavBar from "./NavBar";
 import QueryClientProvider from "./QueryClientProvider";
 import { ViewTransitions } from "next-view-transitions";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {

@@ -3,17 +3,19 @@ interface Source {
 }
 
 export interface Article {
-  source: Source;
-  author: string;
+  article_id: string; 
   title: string;
-  description: string;
-  publishedAt: string;
-  content: string;
-  url: string;
+  link: string;
+  image_url: string;
+  content: string; 
+  pubDate: string; 
+  source_name: string;
+  creator: string; 
 }
 
 export interface Response {
-  articles: Article[];
+  totalResults: number;
+  results: Article[];
 }
 
 export interface newsTitleProps {

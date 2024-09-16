@@ -1,4 +1,4 @@
 export const navLinks = [
-  { label: "Top Headlines", href: "/" },
-  { label: "Everything", href: "/everything" },
+  { label: "Latest News", href: "/" },
+  { label: "Search", href: "/everything" },
 ];

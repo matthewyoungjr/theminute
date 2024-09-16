@@ -1,8 +1,6 @@
-import apiClient from "../services/api-client";
 import { useQuery } from "@tanstack/react-query";
-import type { Response, Article } from "../types/newsType";
+import type { Response} from "../types/newsType";
 import axios from "axios";
-import { useState } from "react";
 
 
 
@@ -11,9 +9,9 @@ const useEverything = ({ search }: { search: string }) => {
   const fetchSearch = () => {
     return axios
       .get<Response>(
-        `https://newsapi.org/v2/everything?q=${search}&apiKey=3cd8914b298e4dc687c1c16434214127`
+        `https://newsdata.io/api/1/latest?apikey=pub_51702cbdd5bd7e39b5c0844410a5b1033f6b0&q=${search}&language=en`
       )
-      .then((res) => res.data.articles)
+      .then(({ data }) => data.results)
       .catch((error) => {
         console.error(error);
         throw error;

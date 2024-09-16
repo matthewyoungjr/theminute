@@ -7,31 +7,32 @@ import { useState } from "react";
 import NewsCard from "../compnents/NewsCard";
 
 const Everything = () => {
-  const [search, setSearch] = useState<string>('')
-  const { data, error } = useEverything({ search }); 
-  const handleOnSearch = (term: string) => setSearch(term);
-  return (
-    <>
-      <Heading
-        level={1}
-        className="text-center text-4xl md:text-6xl mt-10 ml-5"
-      >
-        Everything
-      </Heading>
-      <Search onSearch={handleOnSearch}/>
-      {error && <p className="text-red-500">{error.message}</p>}
-      <NewsGrid> 
-        {data?.map((article, index) => (
-          <NewsCard
-            key={index}
-            title={article.title}
-            author={article.author}
-            url={article.url}
-          />
-        ))}
-      </NewsGrid>
-    </>
-  );
+	const [search, setSearch] = useState<string>("");
+	const { data, error } = useEverything({ search });
+	const handleOnSearch = (term: string) => setSearch(term);
+	return (
+		<>
+			<Heading
+				level={1}
+				className="text-center text-4xl md:text-6xl mt-10 ml-5"
+			>
+				Search
+			</Heading>
+			<Search onSearch={handleOnSearch} />
+			{error && <p className="text-red-500">{error.message}</p>}
+			<NewsGrid>
+				{data?.map((article) => (
+					<NewsCard
+						key={article.article_id}
+						title={article.title}
+						author={article.creator}
+						url={article.link}
+						date={article.pubDate}
+					/>
+				))}
+			</NewsGrid>
+		</>
+	);
 };
 
 export default Everything;

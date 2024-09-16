@@ -12,7 +12,7 @@ const NavBar = () => {
       <ul className="flex space-x-5 items-center">
         {navLinks.map((link, index) => (
           <li
-            key={index}
+            key={link.label}
             className="hidden md:inline md:text-base lg:text-base"
           >
             <Link href={link.href}>{link.label}</Link>

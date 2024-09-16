@@ -21,18 +21,19 @@ export default function Home() {
         level={1}
         className="text-4xl md:text-6xl mt-10 ml-5 text-center"
       >
-        Top Headlines
+        Latest News
       </Heading>
       <NewsFilter onSelectItem={(item) => handleChange(item)} />
       {isLoading && <Loader size="medium" />}
       {error && <p className="text-red-500">{error.message}</p>}
       <NewsGrid>
-        {data?.map((article, index) => (
+        {data?.map((article) => (
           <NewsCard
-            key={index}
+            key={article.article_id}
             title={article.title}
-            author={article.author}
-            url={article.url}
+            author={article.creator}
+            url={article.link}
+            date={article.pubDate}
           />
         ))}
       </NewsGrid>

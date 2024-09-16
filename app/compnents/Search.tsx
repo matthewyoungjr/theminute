@@ -2,7 +2,6 @@
 
 import { Description } from "@/components/ui/field";
 import { SearchField } from "@/components/ui/search-field";
-import useEverything from "../hooks/useEverything";
 import { useQueryState } from 'nuqs';
 
 interface SearchProps {
@@ -10,12 +9,12 @@ interface SearchProps {
 }
 
 const Search = ({ onSearch }: SearchProps) => {
-  const [search, setSearch] = useQueryState('q', { defaultValue: ''})
+  const [search, setSearch] = useQueryState('q', { defaultValue: '' })
   const handleSearch = (term: string) => {
     setSearch(term)
     onSearch(term)
   };
- 
+
 
   return (
     <>
