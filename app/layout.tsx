@@ -1,11 +1,12 @@
-import { Inter } from "next/font/google";
-import "./globals.css";
-import { Providers } from "../components/providers";
-import NextTopLoader from "nextjs-toploader";
-import NavBar from "./NavBar";
-import QueryClientProvider from "./QueryClientProvider";
-import { ViewTransitions } from "next-view-transitions";
 import type { Metadata } from "next";
+import QueryClientProvider from "./QueryClientProvider";
+import { Providers } from "../components/providers";
+import { SpeedInsights } from "@vercel/speed-insights/next"
+import NextTopLoader from "nextjs-toploader";
+import { ViewTransitions } from "next-view-transitions";
+import "./globals.css";
+import NavBar from "./NavBar";
+import { Inter } from "next/font/google";
 
 export const metadata: Metadata = {
   title: "The Minute",
@@ -31,6 +32,7 @@ export default function RootLayout({
               <NextTopLoader />
               <NavBar />
               {children}
+              <SpeedInsights />
             </Providers>
           </QueryClientProvider>
         </body>
