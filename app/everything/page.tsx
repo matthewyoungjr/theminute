@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import { Heading } from "@/components/ui/heading";
 import Search from "../compnents/Search";
 import NewsGrid from "../compnents/NewsGrid";
@@ -20,7 +20,9 @@ const Everything = () => {
 			>
 				Search
 			</Heading>
+			<Suspense fallback="Loading...">
 			<Search onSearch={handleOnSearch} />
+			</Suspense>
 			{error && <p className="text-red-500">{error.message}</p>}
 			<NewsGrid>
 				{data?.map((article) => (
