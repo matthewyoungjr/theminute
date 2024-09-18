@@ -7,6 +7,7 @@ import { ViewTransitions } from "next-view-transitions";
 import "./globals.css";
 import NavBar from "./NavBar";
 import { Inter } from "next/font/google";
+import Footer from "@/app/Footer"
 
 export const metadata: Metadata = {
   title: "The Minute",
@@ -32,6 +33,7 @@ export default function RootLayout({
               <NextTopLoader />
               <NavBar />
               {children}
+              <Footer />
               <SpeedInsights />
             </Providers>
           </QueryClientProvider>
