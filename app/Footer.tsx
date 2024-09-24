@@ -1,8 +1,9 @@
 export default function Footer () {
       return (
             <>
-            <footer>
-                  <div>Made with love by Matthew. Email: mattyoungjnr@gmail.com</div>
+            <footer className='w-full block text-center'>
+                  <p className="text-center text-base md:text-lg xl:text-xl">Made with ❤️ by Matthew.</p>
+                  <p className="text-center text-base md:text-lg xl:text-xl"> Email : mattyoungjnr@gmail.com</p>
             </footer>
             </>
       )
