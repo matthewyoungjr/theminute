@@ -9,11 +9,11 @@ const NavBar = () => {
         The Minute
       </span>
 
-      <ul className="flex space-x-5 items-center">
+      <ul className="flex gap-3 md:space-x-5 items-center">
         {navLinks.map((link, index) => (
           <li
             key={link.label}
-            className="hidden md:inline md:text-base lg:text-base"
+            className="inline md:inline md:text-base lg:text-base"
           >
             <Link href={link.href}>{link.label}</Link>
           </li>
